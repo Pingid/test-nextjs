@@ -28,7 +28,6 @@ export const TinaCMSProvider = ({
   enabled: boolean
   error?: any
 }) => {
-  console.log({ children, error, enabled })
   const client = useMemo(
     () =>
       new GithubClient({
@@ -53,8 +52,6 @@ export const TinaCMSProvider = ({
       }),
     [enabled, client]
   )
-
-  console.log({ cms, client })
 
   return (
     <TinaProvider cms={cms}>

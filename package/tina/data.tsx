@@ -11,6 +11,9 @@ export const getFile = (filename: string) => async ({
       ...previewData,
       fileRelativePath: `data/tina/data.json`,
       parse: parseJson,
+    }).catch((error) => {
+      console.error(error)
+      return { props: { file: {} } }
     })
     return styleFormsProps.props.file
   }
