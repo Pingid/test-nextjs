@@ -20,8 +20,8 @@ export const getStaticProps = async function ({ preview, previewData }) {
   try {
     const posts = await getBlogPosts(preview, previewData, "content/blog")
     const global = await getGlobalStaticProps(preview, previewData)
-    const l = await getAt(preview, previewData)
-    console.log({ l })
+    // const l = await getFile("data.json")(preview, previewData)
+    // console.log({ l })
     if (preview) {
       return {
         props: {

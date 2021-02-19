@@ -2,31 +2,10 @@ import { getGithubPreviewProps, GithubFile, parseJson } from "next-tinacms-githu
 import { createContext, useContext } from "react"
 import { GetStaticPropsContext } from "next"
 
-export const getAt = async (preview: any, previewData: any) => {
-  if (preview) {
-    const styleFormsProps = await getGithubPreviewProps({
-      ...previewData,
-      fileRelativePath: "content/data.json",
-      parse: parseJson,
-    }).catch((error) => {
-      console.log({ error })
-      return null
-    })
-
-    return {
-      styleFile: styleFormsProps.props.file,
-    }
-  }
-
-  return {
-    styleFile: {
-      data: (await import("../../content/data.json")).default,
-      fileRelativePath: "content/data.json",
-    },
-  }
-}
-
-export const getFile = async ({ preview, previewData }: GetStaticPropsContext) => {
+export const getFile = (filename: string) => async ({
+  preview,
+  previewData,
+}: GetStaticPropsContext) => {
   if (preview) {
     const styleFormsProps = await getGithubPreviewProps({
       ...previewData,
