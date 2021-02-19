@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "file": "media/headclasp-1.glb",
+      "sku": "head-item-01-1612102011837",
+      "rotation": {
+        "x": 0,
+        "y": -135,
+        "z": 0
+      },
+      "position": {
+        "x": 0,
+        "y": 0.3,
+        "z": 0.4
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": false
+    },
+    {
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "rotation": {
+        "x": 0,
+        "y": 45,
+        "z": 0
+      },
+      "position": {
+        "x": 0,
+        "y": 1.7,
+        "z": 0
+      },
+      "file": "media/talisman-02.glb",
+      "sku": "cool beans",
+      "visible": true
+    }
+  ]
+}

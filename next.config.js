@@ -18,6 +18,7 @@ module.exports = withSvgr({
       "@utils": path.resolve(__dirname, "./utils"),
       "@docs": path.resolve(__dirname, "./docs"),
       "@hooks": path.resolve(__dirname, "./hooks"),
+      "@package": path.resolve(__dirname, "./package"),
     }
 
     return config
