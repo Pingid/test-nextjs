@@ -1,18 +1,18 @@
-import { useGithubJsonForm, useGithubToolbarPlugins } from 'react-tinacms-github'
+import { useGithubJsonForm, useGithubToolbarPlugins } from "react-tinacms-github"
 
-import { useGitFile } from '@package/tina'
-import { useCMS, useForm, usePlugin, usePlugins } from 'tinacms'
-import { useEffect } from 'react'
+import { useGitFile } from "@package/tina"
+import { useCMS, useForm, usePlugin, usePlugins } from "tinacms"
+import { useEffect } from "react"
 
 export const useHomePageData = () => {
   // const { file } = useGitFile()
   const cms = useCMS()
   const formConfig = {
-    id: 'two',
-    label: 'Edit 2nd Page',
-    fields: [{ name: 'title', label: 'title', component: 'text' }],
+    id: "two",
+    label: "Edit 2nd Page",
+    fields: [{ name: "title", label: "title", component: "text" }],
     onSubmit: (data: any) => {
-      console.log('Submitting', data)
+      console.log("Submitting", data)
     },
   }
   const [data, form] = useForm(formConfig)

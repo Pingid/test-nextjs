@@ -6,26 +6,11 @@ import { useGlobalStyleForm } from "@hooks"
 import getGlobalStaticProps from "../../utils/getGlobalStaticProps"
 import useCreateBlogPage from "../../hooks/useCreateBlogPage"
 import BlogCard from "@components/blogCard"
-
+import { getFile, getAt } from "@package/tina"
 const Blog = (props) => {
-  useCreateBlogPage(props.posts)
-  const [styleData] = useGlobalStyleForm(props.styleFile, props.preview)
-  return (
-    <Layout
-      searchText="Search blog posts"
-      showDocsSearcher
-      searchIndex="tina-starter-alpaca-Blogs"
-      theme={styleData}
-    >
-      <Head title="Blog" />
-      <Container>
-        <h1>Blog</h1>
-        {props.posts.map((post) => {
-          return <BlogCard key={post.fileName} post={post} />
-        })}
-      </Container>
-    </Layout>
-  )
+  // useCreateBlogPage(props.posts)
+  // const [styleData] = useGlobalStyleForm(props.styleFile, props.preview)
+  return <div>fdsfsd</div>
 }
 
 /**
@@ -35,6 +20,8 @@ export const getStaticProps = async function ({ preview, previewData }) {
   try {
     const posts = await getBlogPosts(preview, previewData, "content/blog")
     const global = await getGlobalStaticProps(preview, previewData)
+    const l = await getAt(preview, previewData)
+    console.log({ l })
     if (preview) {
       return {
         props: {

@@ -5,7 +5,7 @@ import { FileProvider, getTinaProps } from "@package/tina"
 import Layout from "../components/Layout"
 import { Home } from "../components/Home"
 
-export const getStaticProps = getTinaProps<{}>("data.json")
+export const getStaticProps = getTinaProps("data.json")
 
 const IndexPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (

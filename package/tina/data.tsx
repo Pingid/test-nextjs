@@ -2,31 +2,78 @@ import { getGithubPreviewProps, GithubFile, parseJson } from "next-tinacms-githu
 import { createContext, useContext } from "react"
 import { GetStaticPropsContext } from "next"
 
-export const getTinaProps = <T extends any>(filename: string) => async ({
+export const getAt = async (preview: any, previewData: any) => {
+  if (preview) {
+    const styleFormsProps = await getGithubPreviewProps({
+      ...previewData,
+      fileRelativePath: "content/data.json",
+      parse: parseJson,
+    }).catch((error) => {
+      console.log({ error })
+      return null
+    })
+
+    return {
+      styleFile: styleFormsProps.props.file,
+    }
+  }
+
+  return {
+    styleFile: {
+      data: (await import("../../content/data.json")).default,
+      fileRelativePath: "content/data.json",
+    },
+  }
+}
+
+export const getFile = async ({ preview, previewData }: GetStaticPropsContext) => {
+  if (preview) {
+    const styleFormsProps = await getGithubPreviewProps({
+      ...previewData,
+      fileRelativePath: `data/tina/data.json`,
+      parse: parseJson,
+    })
+    return styleFormsProps.props.file
+  }
+
+  return {
+    data: (await import(`../../data/tina/data.json`)).default,
+    fileRelativePath: `data/tina/data.json`,
+    sha: "",
+  }
+}
+
+export const getTinaProps = (filename: string) => async ({
   preview,
   previewData,
-}: GetStaticPropsContext): Promise<{ props: FileProviderProps<T> }> =>
+}: GetStaticPropsContext): Promise<{ props: FileProviderProps<any> }> =>
   preview
     ? getGithubPreviewProps({
         ...previewData,
         fileRelativePath: `data/tina/data.json`,
         parse: parseJson,
-      }).then(
-        (x) =>
-          (x.props.file
-            ? x
-            : {
-                ...x,
-                props: {
-                  ...x.props,
-                  file: {
-                    fileRelativePath: `data/tina/data.json`,
-                    sha: ``,
-                    data: {},
+      })
+        .catch(async (error) => {
+          console.log(error)
+
+          return { props: { file: false } }
+        })
+        .then(
+          (x) =>
+            (x.props.file
+              ? x
+              : {
+                  ...x,
+                  props: {
+                    ...x.props,
+                    file: {
+                      fileRelativePath: `data/tina/data.json`,
+                      sha: ``,
+                      data: {},
+                    },
                   },
-                },
-              }) as { props: FileProviderProps<T> }
-      )
+                }) as { props: FileProviderProps<any> }
+        )
     : {
         props: {
           error: null,
