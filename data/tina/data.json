@@ -27,5 +27,17 @@
     "gray": "#777777",
     "accent": "#660099"
   },
-  "title": "Hellol"
+  "title": "Hellol",
+  "home": {
+    "section": [
+      {
+        "title": "Talisman",
+        "description": "Talismans are mineral, vegetable or animal objects which can be worn, carried or placed. Traditionally, they are used to protect and bring positive energy and good fortune."
+      },
+      {
+        "title": "Ritual",
+        "description": "Like all natural objects, your Talisman will require a commitment to care.\nYour talisman may stretch, flex or expand if exposed to sunlight for extended periods. We recommend that you store your talisman on the reset stand provided in direct sunlight for 24 hours. This will help to restore it to its original setting."
+      }
+    ]
+  }
 }
