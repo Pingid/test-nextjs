@@ -1,45 +1,9 @@
 {
-  "logo": "logo_ipsum.png",
-  "siteName": "Alpaca",
-  "description": "Docs starter with next.js and TinaCMS",
-  "fonts": {
-    "body": "Roboto, system-ui, sans-serif",
-    "heading": "Roboto, system-ui, sans-serif",
-    "monospace": "Roboto Mono, monospace"
-  },
-  "fontWeights": {
-    "body": 400,
-    "heading": 600,
-    "bold": 600
-  },
-  "lineHeights": {
-    "body": 1.5,
-    "heading": 1.125
-  },
-  "colors": {
-    "text": "#333333",
-    "background": "#ffffff",
-    "primary": "#1A73E8",
-    "secondary": "#5FAEA0",
-    "muted": "#F6F6F6",
-    "highlight": "#eef6ff",
-    "highlightBorder": "#cce3fe",
-    "gray": "#777777",
-    "accent": "#660099"
-  },
-  "title": "Hellol",
   "home": {
     "section": [
       {
         "title": "Talisman",
-        "description": "Talismans are mineral, vegetable or animal objects which can be worn, carried or placed. Traditionally, they are used to protect and bring positive energy and good fortune.",
-        "image": {
-          "id": "/DSC00422.JPG Copy 2.jpg",
-          "filename": "DSC00422.JPG Copy 2.jpg",
-          "directory": "/",
-          "type": "file",
-          "previewSrc": "https://raw.githubusercontent.com/Pingid/test-nextjs/master/public/DSC00422.JPG%20Copy%202.jpg"
-        }
+        "description": "Talismans are mineral, vegetable or animal objects which can be worn, carried or placed. Traditionally, they are used to protect and bring positive energy and good fortune."
       },
       {
         "title": "Ritual",

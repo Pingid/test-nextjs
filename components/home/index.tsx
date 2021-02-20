@@ -17,12 +17,19 @@ export const Home = () => {
       <section className="min-h-screen w-full">
         <div>
           <div>
-            <h1>{data.title}</h1>
-            <p>
-              Talismans are mineral, vegetable or animal objects which can be worn, carried or
-              placed. Traditionally, they are used to protect and bring positive energy and good
-              fortune.
-            </p>
+            <h1>{data.home.section[0].title}</h1>
+            <p>{data.home.section[0].description}</p>
+          </div>
+          <div>
+            <img />
+          </div>
+        </div>
+      </section>
+      <section className="min-h-screen w-full">
+        <div>
+          <div>
+            <h1>{data.home.section[1].title}</h1>
+            <p>{data.home.section[1].description}</p>
           </div>
           <div>
             <img />
@@ -35,15 +42,25 @@ export const Home = () => {
 
 export const useHomePageData = () => {
   const { file } = Github.useGitFile()
-  const cms = useCMS()
   const formConfig = {
     id: file.fileRelativePath,
     label: "Home page",
     fields: [
       { name: "title", label: "title", component: "text" },
       { name: "home.section[0].title", label: "Section 1 title", component: "text" },
-      { name: "home.section[0].description", label: "Section 1 title", component: "textarea" },
-      { name: "home.section[0].image", label: "Image", component: "image" },
+      {
+        name: "home.section[0].description",
+        label: "Section 1 description",
+        component: "textarea",
+      },
+      {
+        name: "home.section[0].image",
+        label: "Image",
+        component: "image",
+        parse: (media: any) => `/static/${media.filename}`,
+        uploadDir: () => "/public/static/",
+        previewSrc: (fullSrc: any) => fullSrc.replace("/public", ""),
+      },
       { name: "home.section[1].title", label: "Section 2 title", component: "text" },
       {
         name: "home.section[1].description",
@@ -57,13 +74,10 @@ export const useHomePageData = () => {
     },
   }
   const [data, form] = useGithubJsonForm(file, formConfig)
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     cms.plugins.add(form)
-  //   }, 3000)
-  // }, [])
   usePlugin(form)
-  // useGithubToolbarPlugins()
-
-  return data as any
+  return data as {
+    home: {
+      section: [{ title: string; description: string }, { title: string; description: string }]
+    }
+  }
 }
