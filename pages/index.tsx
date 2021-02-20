@@ -1,19 +1,23 @@
 import { InferGetStaticPropsType } from "next"
 
-import { FileProvider, getTinaProps } from "@package/tina"
+import { Github } from "@package/tina"
 
 import Layout from "../components/Layout"
-import { Home } from "../components/Home"
+import { Home } from "../components/home"
 
-export const getStaticProps = getTinaProps("data.json")
+export const getStaticProps = Github.mapToProps({
+  data: Github.getGitFile("data/tina/data.json", () =>
+    import("../data/tina/data.json").then((x) => x.default)
+  ),
+})
 
 const IndexPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <FileProvider {...props}>
+    <Github.FileProvider {...props.data}>
       <Layout title="Home">
         <Home />
       </Layout>
-    </FileProvider>
+    </Github.FileProvider>
   )
 }
 

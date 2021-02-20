@@ -18,7 +18,8 @@
     "strict": true,
     "target": "esnext",
     "paths": {
-      "@package/*": ["./package/*"]
+      "@package/*": ["./package/*"],
+      "@package": ["./package"]
     }
   },
   "exclude": ["node_modules"],

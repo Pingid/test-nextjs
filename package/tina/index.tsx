@@ -1,2 +1,1 @@
-export * from "./provider"
-export * from "./data"
+export * as Github from "./github"
