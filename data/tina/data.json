@@ -32,7 +32,14 @@
     "section": [
       {
         "title": "Talisman",
-        "description": "Talismans are mineral, vegetable or animal objects which can be worn, carried or placed. Traditionally, they are used to protect and bring positive energy and good fortune."
+        "description": "Talismans are mineral, vegetable or animal objects which can be worn, carried or placed. Traditionally, they are used to protect and bring positive energy and good fortune.",
+        "image": {
+          "id": "/DSC00422.JPG Copy 2.jpg",
+          "filename": "DSC00422.JPG Copy 2.jpg",
+          "directory": "/",
+          "type": "file",
+          "previewSrc": "https://raw.githubusercontent.com/Pingid/test-nextjs/master/public/DSC00422.JPG%20Copy%202.jpg"
+        }
       },
       {
         "title": "Ritual",
