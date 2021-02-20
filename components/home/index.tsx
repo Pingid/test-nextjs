@@ -19,6 +19,7 @@ export const Home = () => {
           <div>
             <h1>{data.home.section[0].title}</h1>
             <p>{data.home.section[0].description}</p>
+            <img src={data.home.section[0].image} />
           </div>
           <div>
             <img />
@@ -57,9 +58,9 @@ export const useHomePageData = () => {
         name: "home.section[0].image",
         label: "Image",
         component: "image",
-        parse: (media: any) => `/static/${media.filename}`,
-        uploadDir: () => "/public/static/",
-        previewSrc: (fullSrc: any) => fullSrc.replace("/public", ""),
+        uploadDir: () => "/images/",
+        parse: (x: any) => `/images/${x.filename}`,
+        previewSrc: (fullSrc: string) => fullSrc.replace("/public", ""),
       },
       { name: "home.section[1].title", label: "Section 2 title", component: "text" },
       {
@@ -77,7 +78,10 @@ export const useHomePageData = () => {
   usePlugin(form)
   return data as {
     home: {
-      section: [{ title: string; description: string }, { title: string; description: string }]
+      section: [
+        { title: string; description: string; image: {} },
+        { title: string; description: string }
+      ]
     }
   }
 }
